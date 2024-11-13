@@ -6,16 +6,16 @@ class SignInPage(PageFactory):
         self.driver = driver
 
     locators = {
-    'user_name': ('CSS', "#username input"),
-    'password': ('CSS', '#password input'),
-    'login_btn': ('ID', 'login-btn')
+    "username": ('ID', "user-name"),
+    "password": ('XPATH', "//*[@data-test='password']"),
+    "login": ('ID', "login-button")
     }
 
-    def select_username(self):
-        self.user_name.set_text('demouser\n')
+    def enter_username(self, username):
+        self.username.set_text(username)
 
-    def select_password(self):
-        self.password.set_text('testingisfun99\n')
+    def enter_password(self, password):
+        self.password.set_text(password)
 
     def click_login(self):
-        self.login_btn.click()
+        self.login.click()

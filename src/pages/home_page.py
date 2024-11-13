@@ -6,13 +6,11 @@ class Homepage(PageFactory):
         self.driver = driver
 
     locators = {
-    "sign_in": ("ID", "signin"),
-    "user_name": ("CSS", ".username")
+     "app_logo": ("XPATH", "//div[contains(@class, 'app_logo')]"),
     }
 
-    def click_sign_in(self):
-        self.sign_in.click()
-
-    def get_username(self):
-        retrieved_username = self.user_name.get_text()
-        assert retrieved_username == "demouser"
+    def get_app_logo_text(self):
+        retrieved_app_logo_text = self.app_logo.get_text()
+        expected_app_logo_text = "Swag Labs"
+        msg = f"Expected app logo text {expected_app_logo_text}, but found: {retrieved_app_logo_text}"
+        assert retrieved_app_logo_text == expected_app_logo_text, msg
