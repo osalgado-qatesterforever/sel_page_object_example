@@ -1,2 +1,4 @@
 selenium
 pytest
+Appium-Python-Client
+selenium-page-factory
